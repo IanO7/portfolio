@@ -219,7 +219,8 @@ section {
 
 .project-section {
     width: 100%;
-    margin-bottom: 60px; /* less space between projects */
+    margin-top: 120px;
+    margin-bottom: 120px;
     position: relative;
     /* Remove min-height and any sticky/overflow properties */
 }
@@ -324,6 +325,44 @@ section {
     cursor: pointer;
 }
 
+/* Center the SKILLS and CONTACT icons vertically over the background text */
+.skills-section-hero,
+.contact-section-hero {
+    min-height: 260px; /* Make sure this is at least as tall as your text + icons */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.skills-foreground,
+.contact-foreground {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    gap: 3vw;
+    z-index: 2;
+    width: auto;
+    justify-content: center;
+    /* Remove min-height and width: 100% if present */
+}
+
+.skills-foreground img,
+.contact-foreground img,
+#skills-carousel img {
+    max-width: 110px !important;
+    height: 110px !important;
+    min-width: 110px !important;
+    min-height: 110px !important;
+    padding: 0.5rem;
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(60,72,88,0.10);
+    border-radius: 1.5rem;
+}
+
 /* Responsive */
 @media (max-width: 1200px) {
     .main-name {
@@ -399,4 +438,19 @@ section {
     .about-foreground-text {
         font-size: 1.2rem;
     }
+}
+
+@media (max-width: 600px) {
+    .about-bg-text {
+        font-size: 12vw;
+    }
+    .skills-foreground img,
+    .contact-foreground img {
+        max-width: 60px;
+    }
+}
+
+@keyframes scrollSkills {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
