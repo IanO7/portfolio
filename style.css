@@ -11,11 +11,3 @@ section {
     padding: 24px 20px;
     margin-bottom: 32px;
 }
-@media (max-width: 600px) {
-    .container {
-        padding: 0 4px;
-    }
-    section {
-        padding: 16px 8px;
-    }
-}
