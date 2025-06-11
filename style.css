@@ -12,6 +12,7 @@ body {
     color: #23272f;
     margin: 0;
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    scroll-snap-type: y mandatory;
 }
 
 h1, h3 {
@@ -254,7 +255,7 @@ section {
 .project-line {
     position: relative;
     display: inline-block;
-    overflow: hidden;
+    overflow: hidden;   
 }
 
 .project-line::before {
@@ -370,26 +371,25 @@ section {
     margin-right: 0;
 }
 
-/* Minimal, modern scrollbar with gradient thumb and NO buttons/arrows */
+ind/* Minimal, modern scrollbar with light blue gradient thumb and NO buttons/arrows */
 ::-webkit-scrollbar {
-    width: 10px;
-    background: transparent;
+  width: 12px;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 8px;
-    background: linear-gradient(180deg, #b3c0d1 0%, #7a8fa6 100%);
-    min-height: 40px;
-    border: none;
-    transition: background 0.3s;
+  background: linear-gradient(to bottom, #b3e0ff 0%, #4fc3f7 100%);
+  border-radius: 8px;
+  min-height: 40px;
+  transition: background 0.3s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #7a8fa6 0%, #b3c0d1 100%);
+  background: linear-gradient(to bottom, #81d4fa 0%, #0288d1 100%);
 }
 
 ::-webkit-scrollbar-corner {
-    background: transparent;
+  background: transparent;
 }
 
 /* Hide ALL scrollbar buttons (arrows) in every browser supporting WebKit */
@@ -403,9 +403,9 @@ section {
 ::-webkit-scrollbar-button:vertical:end:increment,
 ::-webkit-scrollbar-button:horizontal:start:decrement,
 ::-webkit-scrollbar-button:horizontal:end:increment {
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
+  display: none;
+  height: 0;
+  width: 0;
 }
 
 /* For Firefox: thin scrollbar, custom color */
@@ -521,4 +521,29 @@ section {
 .project-info {
     background: var(--bs-body-bg);
     color: var(--bs-body-color);
+}
+
+.project-info,
+.project-swipe-mask {
+    background: none !important;
+    box-shadow: none !important;
+}
+
+.full-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 8vh;
+    padding-bottom: 8vh;
+    scroll-snap-align: start;
+}
+
+.project-tag {
+  display: block;
+  font-size: 1.2rem;
+  color: #444;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
 }

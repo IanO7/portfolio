@@ -55,7 +55,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const windowHeight = window.innerHeight || document.documentElement.clientHeight;
         swipeMasks.forEach(swipeMask => {
             const rect = swipeMask.getBoundingClientRect();
-            if (rect.top < windowHeight * 0.8 && rect.bottom > 0) {
+            // Reveal if the top of the section is within the upper half of the viewport
+            if (rect.top < windowHeight * 0.7 && rect.bottom > windowHeight * 0.5) {
                 swipeMask.classList.add('revealed');
             } else {
                 swipeMask.classList.remove('revealed');
