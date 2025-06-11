@@ -11,7 +11,7 @@
 <body class="bg-white">
     <div class="d-flex flex-column align-items-center justify-content-center min-vh-100 centered-header">
         <h1 class="main-name">Ian Oon</h1>
-        <p class="subtitle">UWA Engineering &amp; Data Science Student</p>
+        <p class="subtitle" id="typewriter"></p>
     </div>
     <div class="container my-5">
         <div class="about-section-hero position-relative">
@@ -143,7 +143,7 @@
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/neo4j/neo4j-original.svg" alt="Neo4j" />
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" />
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powerbi/powerbi-original.svg" alt="PowerBI" />
+                <img src="images/powerbi.avif" alt="PowerBI" />
                 <!-- Repeat for seamless scroll -->
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
@@ -156,7 +156,7 @@
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/neo4j/neo4j-original.svg" alt="Neo4j" />
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" />
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powerbi/powerbi-original.svg" alt="PowerBI" />
+                <img src="images/powerbi.avif" alt="PowerBI" />
             </div>
         </div>
     </div>
@@ -179,62 +179,6 @@
 </div>
     <!-- Bootstrap JS (optional, for some components) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const aboutBgTexts = document.querySelectorAll('.about-bg-text:not(.contact-bg-text)');
-    const contactBgTexts = document.querySelectorAll('.contact-bg-text');
-    function animateAboutBgText() {
-        aboutBgTexts.forEach(aboutBgText => {
-            const rect = aboutBgText.getBoundingClientRect();
-            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-            const visible = Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
-            const percentVisible = Math.max(0, Math.min(1, visible / rect.height));
-            const pageScroll = window.scrollY + windowHeight;
-            const aboutTop = rect.top + window.scrollY;
-            const aboutHeight = rect.height;
-            let scrollProgress = (pageScroll - aboutTop) / (aboutHeight + windowHeight);
-            scrollProgress = Math.max(0, Math.min(1, scrollProgress));
-            const slide = -200 + 400 * scrollProgress;
-            aboutBgText.style.opacity = percentVisible;
-            aboutBgText.style.transform = `translateX(${slide}px)`;
-        });
-        // Animate CONTACT from right to left
-        contactBgTexts.forEach(contactBgText => {
-            const rect = contactBgText.getBoundingClientRect();
-            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-            const visible = Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
-            const percentVisible = Math.max(0, Math.min(1, visible / rect.height));
-            const pageScroll = window.scrollY + windowHeight;
-            const aboutTop = rect.top + window.scrollY;
-            const aboutHeight = rect.height;
-            let scrollProgress = (pageScroll - aboutTop) / (aboutHeight + windowHeight);
-            scrollProgress = Math.max(0, Math.min(1, scrollProgress));
-            const slide = 200 - 400 * scrollProgress; // RHS to LHS
-            contactBgText.style.opacity = percentVisible;
-            contactBgText.style.transform = `translateX(${slide}px)`;
-        });
-    }
-    window.addEventListener('scroll', animateAboutBgText);
-    window.addEventListener('resize', animateAboutBgText);
-    animateAboutBgText();
-
-    // Project swipe reveal for all project sections
-    const swipeMasks = document.querySelectorAll('.project-swipe-mask');
-    function checkReveal() {
-        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-        swipeMasks.forEach(swipeMask => {
-            const rect = swipeMask.getBoundingClientRect();
-            if (rect.top < windowHeight * 0.8 && rect.bottom > 0) {
-                swipeMask.classList.add('revealed');
-            } else {
-                swipeMask.classList.remove('revealed');
-            }
-        });
-    }
-    window.addEventListener('scroll', checkReveal);
-    window.addEventListener('resize', checkReveal);
-    checkReveal();
-});
-</script>
+    <script src="main.js"></script>
 </body>
 </html>

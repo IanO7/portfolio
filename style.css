@@ -454,3 +454,14 @@ section {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+#typewriter::after {
+    content: '|';
+    animation: blink 1s steps(1) infinite;
+    color: #4a4a4a;
+    margin-left: 2px;
+}
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
