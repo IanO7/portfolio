@@ -8,10 +8,10 @@ html, body {
 
 body {
     min-height: 100vh;
-    background: #f8fafc; /* subtle off-white for less harshness */
+    background: #f8fafc; /* or your preferred color */
+    color: #23272f;
     margin: 0;
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-    color: #23272f;
 }
 
 h1, h3 {
@@ -363,6 +363,57 @@ section {
     border-radius: 1.5rem;
 }
 
+#skills-carousel img {
+    margin-right: 2rem;
+}
+#skills-carousel img:last-child {
+    margin-right: 0;
+}
+
+/* Minimal, modern scrollbar with gradient thumb and NO buttons/arrows */
+::-webkit-scrollbar {
+    width: 10px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: linear-gradient(180deg, #b3c0d1 0%, #7a8fa6 100%);
+    min-height: 40px;
+    border: none;
+    transition: background 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #7a8fa6 0%, #b3c0d1 100%);
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* Hide ALL scrollbar buttons (arrows) in every browser supporting WebKit */
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-button:single-button,
+::-webkit-scrollbar-button:vertical:decrement,
+::-webkit-scrollbar-button:vertical:increment,
+::-webkit-scrollbar-button:horizontal:decrement,
+::-webkit-scrollbar-button:horizontal:increment,
+::-webkit-scrollbar-button:vertical:start:decrement,
+::-webkit-scrollbar-button:vertical:end:increment,
+::-webkit-scrollbar-button:horizontal:start:decrement,
+::-webkit-scrollbar-button:horizontal:end:increment {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* For Firefox: thin scrollbar, custom color */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #b3c0d1 #ffffff;
+}
+
 /* Responsive */
 @media (max-width: 1200px) {
     .main-name {
@@ -464,4 +515,10 @@ section {
 @keyframes blink {
     0%, 50% { opacity: 1; }
     51%, 100% { opacity: 0; }
+}
+
+.about-section,
+.project-info {
+    background: var(--bs-body-bg);
+    color: var(--bs-body-color);
 }

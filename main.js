@@ -65,4 +65,35 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener('scroll', checkReveal);
     window.addEventListener('resize', checkReveal);
     checkReveal();
+
+    // Bootstrap 5.3+ color mode toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeText = document.getElementById('themeText');
+
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-bs-theme', theme);
+        localStorage.setItem('theme', theme);
+        if (theme === 'dark') {
+            themeIcon.className = 'bi bi-sun';
+            themeText.textContent = 'Light Mode';
+        } else {
+            themeIcon.className = 'bi bi-moon';
+            themeText.textContent = 'Dark Mode';
+        }
+    }
+
+    // On load, set theme from localStorage or system preference
+    (function () {
+        let stored = localStorage.getItem('theme');
+        if (!stored) {
+            stored = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        setTheme(stored);
+    })();
+
+    themeToggle.addEventListener('click', function () {
+        const current = document.documentElement.getAttribute('data-bs-theme');
+        setTheme(current === 'dark' ? 'light' : 'dark');
+    });
 });
