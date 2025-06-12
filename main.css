@@ -293,6 +293,7 @@ section {
     align-items: center;
     justify-content: center;
     min-width: 180px;
+    position: relative;
 }
 
 .project-image img {
@@ -348,6 +349,78 @@ section {
 }
 #skills-carousel img:last-child {
     margin-right: 0;
+}
+
+/* Suggested code change */
+.img-overlay-label {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    background: rgba(255,255,255,0.93);
+    color: #23272f;
+    padding: 0.18em 1.3em 0.18em 1.3em;
+    border-radius: 2em;
+    font-size: 1.45rem;
+    font-family: 'Caveat', cursive, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    opacity: 0.97;
+    pointer-events: none;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    z-index: 3;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    display: flex;
+    align-items: center;
+    gap: 0.7em;
+    white-space: nowrap;
+    border: 2px solid #e0e0e0;
+}
+.project-image a:hover .img-overlay-label,
+.project-image a:focus .img-overlay-label {
+    background: #007bff;
+    color: #fff;
+    box-shadow: 0 4px 18px rgba(0,123,255,0.13);
+    border-color: #007bff;
+    opacity: 1;
+}
+.img-overlay-label .arrow {
+    font-size: 1.5em;
+    margin-left: 0.2em;
+    font-family: inherit;
+    display: inline-block;
+    transform: translateY(2px) rotate(-10deg);
+}
+@media (max-width: 900px) {
+    .img-overlay-label {
+        opacity: 1;
+        background: #fff;
+        color: #23272f;
+    }
+}
+
+/* Suggested code change */
+.img-handwritten-label {
+    font-family: 'Caveat', cursive, sans-serif;
+    font-size: 1.45rem;
+    color: #23272f;
+    margin-top: 0.2em;
+    margin-bottom: 0.8em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    line-height: 1.1;
+    text-align: center;
+    width: 100%;
+    user-select: none;
+    pointer-events: none;
+}
+.img-handwritten-label .arrow-up {
+    font-size: 1.5em;
+    margin-left: 0.2em;
+    display: inline-block;
+    transform: rotate(-25deg) translateY(2px);
+    color: #007bff;
 }
 
 /* Responsive */
